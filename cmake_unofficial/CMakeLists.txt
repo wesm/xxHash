@@ -111,6 +111,12 @@ foreach (flag
   unset(flag_to_test)
 endforeach (flag)
 
+if (XXHASH_C_FLAGS)
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${XXHASH_C_FLAGS}")
+endif()
+
+message(STATUS "CMAKE_C_FLAGS: ${CMAKE_C_FLAGS}")
+
 if(NOT XXHASH_BUNDLED_MODE)
   include(GNUInstallDirs)
 
@@ -165,4 +171,3 @@ if(NOT XXHASH_BUNDLED_MODE)
     DESTINATION ${xxHash_CONFIG_INSTALL_DIR}
     NAMESPACE ${PROJECT_NAME}::)
 endif(NOT XXHASH_BUNDLED_MODE)
-
